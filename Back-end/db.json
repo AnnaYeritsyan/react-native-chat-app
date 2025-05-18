@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": "1792816b-733d-41bb-88f7-ecd097430e9a",
+      "email": "aaa",
+      "password": "aaa",
+      "username": "aaa"
+    }
+  ],
+  "messages": [
+    {
+      "id": "510eb3fe-4cf5-40f7-8097-37f37adf374b",
+      "senderId": "1792816b-733d-41bb-88f7-ecd097430e9a",
+      "message": "mjmj",
+      "timestamp": "2025-05-17T21:08:45.375Z"
+    }
+  ]
+}
