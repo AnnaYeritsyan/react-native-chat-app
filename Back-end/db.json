@@ -1,18 +1,171 @@
 {
   "users": [
     {
-      "id": "1792816b-733d-41bb-88f7-ecd097430e9a",
+      "id": "706df53c-ae43-4f4e-b47b-4a749bf2518a",
       "email": "aaa",
       "password": "aaa",
       "username": "aaa"
+    },
+    {
+      "id": "83166a16-3bac-431a-8b8a-4595a8fa4a7a",
+      "email": "qqq",
+      "password": "qqq",
+      "username": "qqq"
+    },
+    {
+      "id": "40a184e4-26d3-4599-bd70-7dcb7b0fb763",
+      "email": "Arman",
+      "password": "123",
+      "username": "Arman"
+    },
+    {
+      "id": "bc50f734-b527-4754-9ef2-8073f0c91a88",
+      "email": "eee",
+      "password": "eee",
+      "username": "eee"
     }
   ],
   "messages": [
     {
-      "id": "510eb3fe-4cf5-40f7-8097-37f37adf374b",
-      "senderId": "1792816b-733d-41bb-88f7-ecd097430e9a",
-      "message": "mjmj",
-      "timestamp": "2025-05-17T21:08:45.375Z"
+      "id": "ba58e076-583a-42c3-bc48-73d6bb426ba7",
+      "senderId": "706df53c-ae43-4f4e-b47b-4a749bf2518a",
+      "recipientId": "83166a16-3bac-431a-8b8a-4595a8fa4a7a",
+      "message": "hi",
+      "timestamp": "2025-05-18T14:09:43.831Z"
+    },
+    {
+      "id": "6a734ccd-a15d-4e50-aee3-369ce06cb24a",
+      "senderId": "83166a16-3bac-431a-8b8a-4595a8fa4a7a",
+      "recipientId": "706df53c-ae43-4f4e-b47b-4a749bf2518a",
+      "message": "hi how are you",
+      "timestamp": "2025-05-18T14:10:26.673Z"
+    },
+    {
+      "id": "5f4264d7-0e68-4f08-8c23-f316c2ace286",
+      "senderId": "706df53c-ae43-4f4e-b47b-4a749bf2518a",
+      "recipientId": "83166a16-3bac-431a-8b8a-4595a8fa4a7a",
+      "message": "fine you?   vdfdf",
+      "timestamp": "2025-05-18T14:11:15.778Z",
+      "editedAt": "2025-05-18T14:51:15.162Z"
+    },
+    {
+      "id": "595bc5a8-0bd3-46c9-9981-d4fa30599596",
+      "senderId": "83166a16-3bac-431a-8b8a-4595a8fa4a7a",
+      "recipientId": "706df53c-ae43-4f4e-b47b-4a749bf2518a",
+      "message": "good , thank you ",
+      "timestamp": "2025-05-18T14:11:31.295Z"
+    },
+    {
+      "id": "1ff6444c-04c4-4e0d-a289-a00aca43852a",
+      "senderId": "40a184e4-26d3-4599-bd70-7dcb7b0fb763",
+      "recipientId": "706df53c-ae43-4f4e-b47b-4a749bf2518a",
+      "message": "An",
+      "timestamp": "2025-05-18T14:21:20.791Z"
+    },
+    {
+      "id": "90aeb890-8dc9-4f5b-9901-5a6c67f61af5",
+      "senderId": "706df53c-ae43-4f4e-b47b-4a749bf2518a",
+      "recipientId": "83166a16-3bac-431a-8b8a-4595a8fa4a7a",
+      "message": "inch ka",
+      "timestamp": "2025-05-18T14:49:47.109Z",
+      "editedAt": "2025-05-18T14:51:00.083Z"
+    },
+    {
+      "id": "d7ccfaf1-d7f0-4b5c-b81c-549da6f3b4e4",
+      "senderId": "bc50f734-b527-4754-9ef2-8073f0c91a88",
+      "recipientId": "706df53c-ae43-4f4e-b47b-4a749bf2518a",
+      "message": "zaz",
+      "timestamp": "2025-05-18T17:19:28.409Z"
+    },
+    {
+      "id": "a219099b-5b96-4f93-a73b-6b4cb05e7027",
+      "senderId": "706df53c-ae43-4f4e-b47b-4a749bf2518a",
+      "recipientId": "40a184e4-26d3-4599-bd70-7dcb7b0fb763",
+      "message": "hn",
+      "timestamp": "2025-05-18T18:07:19.624Z"
+    },
+    {
+      "id": "21226570-52e9-4dd3-b60f-b782d00113bc",
+      "senderId": "706df53c-ae43-4f4e-b47b-4a749bf2518a",
+      "recipientId": "40a184e4-26d3-4599-bd70-7dcb7b0fb763",
+      "message": "bbb",
+      "timestamp": "2025-05-18T18:07:45.883Z"
+    },
+    {
+      "id": "e0bf159e-f404-45ea-bccb-aad021b51699",
+      "senderId": "706df53c-ae43-4f4e-b47b-4a749bf2518a",
+      "recipientId": "83166a16-3bac-431a-8b8a-4595a8fa4a7a",
+      "message": "aaaaaaaaaaaaa",
+      "timestamp": "2025-05-18T18:13:30.148Z"
+    },
+    {
+      "id": "db94e7e1-86b4-42e9-812c-6c79772bb51a",
+      "senderId": "706df53c-ae43-4f4e-b47b-4a749bf2518a",
+      "recipientId": "83166a16-3bac-431a-8b8a-4595a8fa4a7a",
+      "message": "aaa",
+      "timestamp": "2025-05-18T18:15:51.922Z"
+    },
+    {
+      "id": "96c3f8f2-3eb3-46a1-88af-47d67a5b4fcb",
+      "senderId": "706df53c-ae43-4f4e-b47b-4a749bf2518a",
+      "recipientId": "40a184e4-26d3-4599-bd70-7dcb7b0fb763",
+      "message": "Arm",
+      "timestamp": "2025-05-18T18:28:36.194Z"
+    },
+    {
+      "id": "8f7cab33-b2a1-4d4c-abaf-1020aa552226",
+      "senderId": "706df53c-ae43-4f4e-b47b-4a749bf2518a",
+      "recipientId": "bc50f734-b527-4754-9ef2-8073f0c91a88",
+      "message": "vaayyyy",
+      "timestamp": "2025-05-18T18:35:16.978Z"
+    },
+    {
+      "id": "9de2ffd8-b5a5-4bc6-92c2-13240790abed",
+      "senderId": "83166a16-3bac-431a-8b8a-4595a8fa4a7a",
+      "recipientId": "706df53c-ae43-4f4e-b47b-4a749bf2518a",
+      "message": "yeeee",
+      "timestamp": "2025-05-18T18:35:59.072Z"
+    },
+    {
+      "id": "69056989-44fb-4dee-a646-fa551ea4b0fa",
+      "senderId": "706df53c-ae43-4f4e-b47b-4a749bf2518a",
+      "recipientId": "83166a16-3bac-431a-8b8a-4595a8fa4a7a",
+      "message": "test",
+      "timestamp": "2025-05-18T18:36:32.031Z"
+    }
+  ],
+  "chats": [
+    {
+      "id": "ac3aacb1-2cd5-4198-b660-20d999883a16",
+      "senderId": "706df53c-ae43-4f4e-b47b-4a749bf2518a",
+      "receiverId": "83166a16-3bac-431a-8b8a-4595a8fa4a7a",
+      "messages": [
+        "db94e7e1-86b4-42e9-812c-6c79772bb51a",
+        "9de2ffd8-b5a5-4bc6-92c2-13240790abed",
+        "69056989-44fb-4dee-a646-fa551ea4b0fa"
+      ]
+    },
+    {
+      "id": "f3710d01-a0bc-4a75-bd60-1e61287673bb",
+      "senderId": "706df53c-ae43-4f4e-b47b-4a749bf2518a",
+      "receiverId": "706df53c-ae43-4f4e-b47b-4a749bf2518a",
+      "messages": []
+    },
+    {
+      "id": "59e9c11e-af14-4478-8564-232242ec6172",
+      "senderId": "706df53c-ae43-4f4e-b47b-4a749bf2518a",
+      "receiverId": "40a184e4-26d3-4599-bd70-7dcb7b0fb763",
+      "messages": [
+        "96c3f8f2-3eb3-46a1-88af-47d67a5b4fcb"
+      ]
+    },
+    {
+      "id": "2579b572-1629-4724-830d-8ef80700ab61",
+      "senderId": "706df53c-ae43-4f4e-b47b-4a749bf2518a",
+      "receiverId": "bc50f734-b527-4754-9ef2-8073f0c91a88",
+      "messages": [
+        "8f7cab33-b2a1-4d4c-abaf-1020aa552226"
+      ]
     }
   ]
 }

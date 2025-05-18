@@ -1,88 +1,73 @@
-import React, { useEffect, useState } from 'react';
-import { View, TextInput, Button, FlatList, Text, StyleSheet } from 'react-native';
-import { api } from '../../API/api';
+import React, { useState } from 'react';
+import { View, TextInput, Button, FlatList, Text, TouchableOpacity } from 'react-native';
+import axios from 'axios';
+import { useNavigation } from '@react-navigation/native';
 import { useLocalSearchParams } from 'expo-router';
+import { api } from '../../API/api';
 
+const ChatsScreen = () => {
+  const navigation = useNavigation();
+  const { userId } = useLocalSearchParams(); // userId is a string
+  const [searchQuery, setSearchQuery] = useState('');
+  const [results, setResults] = useState([]);
 
-const ChatScreen = ({ route }) => {
-  const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState('');
-  const { userId } = useLocalSearchParams()
-  console.log('userId:', userId); // Check if userId is passed correctly
-  // const userId = route.params?.userId; // Pass user ID from login
-
-  // const fetchMessages = async () => {
-  //   try {
-  //     const res = await api.get('/messages');
-  //     console.log(res.data);
-  //     setMessages(res.data);
-  //   } catch (err) {
-  //     console.error('Fetch error:', err);
-  //   }
-  // };
-
-const sendMessage = async () => {
-  if (!input.trim()) return;
-
-  const newMessage = {
-    senderId: userId,
-    message: input,
+  const handleSearch = async () => {
+    if (!searchQuery.trim()) return;
+    try {
+      const res = await api.get(`/users/search?query=${searchQuery}`);
+      setResults(res.data.filter(u => u.id !== userId)); // ✅ use userId directly
+    } catch (err) {
+      console.error('Search error:', err);
+    }
   };
 
-  try { 
-    console.log(userId, input, api);
-    const res = await api.post('/messages', newMessage);
+  const handleStartChat = async (receiver) => {
+    try {
+      const res = await api.post('/chats/start', {
+        senderId: userId, // ✅ correct
+        receiverId: receiver.id
+      });
 
-    // Update messages list with the newly added message
-    setMessages(prev => [...prev, res.data]);
-
-    setInput('');
-  } catch (err) {
-    console.error('Send error:', err);
-  }
-};
-
-
-  // useEffect(() => {
-  //   fetchMessages();
-  // }, []);
-
-  const renderItem = ({ item }) => (
-    <View style={[styles.message, item.senderId === userId ? styles.mine : styles.their]}>
-      <Text>{item.message}</Text>
-      <Text style={styles.timestamp}>{new Date(item.timestamp).toLocaleTimeString()}</Text>
-    </View>
-  );
+      navigation.navigate('chat', {
+        chatId: res.data.id,
+        userId,
+        contactId: receiver.id
+      });
+    } catch (err) {
+      console.error('Chat start error:', err);
+    }
+  };
 
   return (
-    <View style={styles.container}>
-      <FlatList
-        data={messages}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-        contentContainerStyle={{ paddingBottom: 20 }}
+    <View style={{ padding: 16 }}>
+      <TextInput
+        placeholder="Search username..."
+        value={searchQuery}
+        onChangeText={setSearchQuery}
+        style={{
+          borderWidth: 1, padding: 8, marginBottom: 8, borderRadius: 5
+        }}
       />
-      <View style={styles.inputContainer}>
-        <TextInput
-          placeholder="Type a message..."
-          value={input}
-          onChangeText={setInput}
-          style={styles.input}
-        />
-        <Button title="Send" onPress={sendMessage} />
-      </View>
+      <Button title="Search" onPress={handleSearch} />
+
+      <FlatList
+        data={results}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            onPress={() => handleStartChat(item)}
+            style={{
+              padding: 12,
+              borderBottomWidth: 1,
+              borderColor: '#ccc'
+            }}
+          >
+            <Text>{item.username}</Text>
+          </TouchableOpacity>
+        )}
+      />
     </View>
   );
 };
 
-export default ChatScreen;
-
-const styles = StyleSheet.create({
-  container: { flex: 1, padding: 10 },
-  inputContainer: { flexDirection: 'row', alignItems: 'center' },
-  input: { flex: 1, borderWidth: 1, padding: 8, marginRight: 8 },
-  message: { marginVertical: 5, padding: 10, borderRadius: 10 },
-  mine: { alignSelf: 'flex-end', backgroundColor: '#d1fcd3' },
-  their: { alignSelf: 'flex-start', backgroundColor: '#f1f1f1' },
-  timestamp: { fontSize: 10, color: '#888', marginTop: 4 }
-});
+export default ChatsScreen;

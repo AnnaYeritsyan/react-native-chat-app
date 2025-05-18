@@ -1,26 +1,59 @@
-// import { Link } from "expo-router";
-// import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
-
-// export default function StartPage() {
-//   return (
-//     <View className="flex-1 justify-center items-center">
-//       <ActivityIndicator  size="large" color="#0000ff" />
-//     </View>
-//   );
-// }
-// app/index.js
-import { View, Button } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
 
 export default function Index() {
   const router = useRouter();
 
   return (
-    <View style={{ padding: 20 }}>
-      <Button title="Login" onPress={() => router.push('/login')} />
-      <Button title="Register" onPress={() => router.push('/register')} />
+    <View style={styles.container}>
+      <Text style={styles.title}>Welcome</Text>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => router.push('/login')}
+      >
+        <Text style={styles.buttonText}>Login</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={[styles.button, styles.registerButton]}
+        onPress={() => router.push('/register')}
+      >
+        <Text style={styles.buttonText}>Register</Text>
+      </TouchableOpacity>
     </View>
   );
 }
 
-
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f2f4f8',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 24,
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    marginBottom: 40,
+    color: '#333',
+  },
+  button: {
+    width: '80%',
+    backgroundColor: '#3b82f6',
+    paddingVertical: 14,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginBottom: 20,
+    elevation: 3,
+  },
+  registerButton: {
+    backgroundColor: '#10b981', 
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: '600',
+  },
+});
