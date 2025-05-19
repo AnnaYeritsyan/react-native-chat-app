@@ -26,13 +26,12 @@ app.post('/login', (req, res) => {
     res.status(401).json({ success: false, message: 'Invalid email or password' });
   }
 });
-const { v4: uuidv4 } = require('uuid'); // install uuid with: npm install uuid
+const { v4: uuidv4 } = require('uuid'); 
 
 app.post('/register', (req, res) => {
   const { email, password, username } = req.body;
   const db = readDB();
 
-  // Check if user already exists
   const existingUser = db.users.find(u => u.email === email);
   if (existingUser) {
     return res.status(409).json({ success: false, message: 'Email already registered' });
@@ -70,8 +69,6 @@ app.post('/chats/start', (req, res) => {
   }
 
   const db = readDB();
-
-  // Check if chat already exists
   let chat = db.chats.find(c =>
     (c.senderId === senderId && c.receiverId === receiverId) ||
     (c.senderId === receiverId && c.receiverId === senderId)
@@ -110,7 +107,7 @@ app.post('/messages', (req, res) => {
 
   db.messages.push(newMessage);
 
-  // Find or create chat
+
   let chat = db.chats.find(chat =>
     (chat.senderId === senderId && chat.receiverId === recipientId) ||
     (chat.senderId === recipientId && chat.receiverId === senderId)
@@ -156,16 +153,14 @@ app.put('/messages/:id', (req, res) => {
 
   const db = readDB();
 
-  // Find message by id
+ 
   const msgIndex = db.messages.findIndex(m => m.id === id);
   if (msgIndex === -1) {
     return res.status(404).json({ error: 'Message not found' });
   }
 
-  // Update the message text
+  
   db.messages[msgIndex].message = message;
-
-  // Save changes back to db.json
   fs.writeFileSync(dbFile, JSON.stringify(db, null, 2));
 
   res.status(200).json({ success: true, message: 'Message updated', updatedMessage: db.messages[msgIndex] });
